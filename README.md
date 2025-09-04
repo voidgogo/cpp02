@@ -1,60 +1,64 @@
+```mermaid
+
 %%2025년도 2학기 C++ 프로그래밍 수업 원격 리포지토리
 
 
 
 classDiagram
 
-&nbsp;   class Company {
+    class Company {
 
-&nbsp;       -string name
+        -string name
 
-&nbsp;       -string telephone
+        -string telephone
 
-&nbsp;       +Company(string name, string telephone)
+        +Company(string name, string telephone)
 
-&nbsp;       +print() const void
+        +print() const void
 
-&nbsp;   }
+    }
 
-&nbsp;   
+ 
 
-&nbsp;   class Product {
+    class Product {
 
-&nbsp;       -string name
+        -string name
 
-&nbsp;       -double unitPrice
+        -double unitPrice
 
-&nbsp;       +Product(string name, double unitPrice)
+        +Product(string name, double unitPrice)
 
-&nbsp;       +~Product()
+        +~Product()
 
-&nbsp;       +getPrice() const double
+        +getPrice() const double
 
-&nbsp;   }
+    }
 
-&nbsp;   
+ 
 
-&nbsp;   class Invoice {
+    class Invoice {
 
-&nbsp;       -int invoiceNumber
+        -int invoiceNumber
 
-&nbsp;       -double invoiceTotal
+        -double invoiceTotal
 
-&nbsp;       -Company company
+        -Company company
 
-&nbsp;       +Invoice(int invoiceNumber, string name, string phone)
+        +Invoice(int invoiceNumber, string name, string phone)
 
-&nbsp;       +~Invoice()
+        +~Invoice()
 
-&nbsp;       +add(int quantity, Product product) void
+        +add(int quantity, Product product) void
 
-&nbsp;       +print() const void
+        +print() const void
 
-&nbsp;   }
+    }
 
-&nbsp;   
+ 
 
-&nbsp;   Invoice \*-- Company : composition (has-a)
+    Invoice \*-- Company : composition (has-a)
 
-&nbsp;   Invoice ..> Product : dependency (use-a)    
+    Invoice ..> Product : dependency (use-a)
+
+```
 
