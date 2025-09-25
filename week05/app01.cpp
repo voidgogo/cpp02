@@ -18,12 +18,20 @@ int main()
 {
 	Animal* pa = new Dog();
 	pa->makeSound();
+	cout << pa << endl;
+
+	Cat* pc = (Cat*)pa;  // Dangerous behavior!!!
+	pc->makeSound();
+	cout << pc << endl;
+	delete pc;
+	pc = nullptr;
 
 	//Dog* pd = (Dog*)pa;  // downcasting, old style (C style)
-	Dog* pd = dynamic_cast<Dog*>(pa);  // downcasting, modern style (C++11)
-	pd->makeSound();
-	delete pd;
-	pd = nullptr;
+	//Dog* pd = dynamic_cast<Dog*>(pa);  // downcasting, modern style (C++11)
+	//pd->makeSound();
+	//delete pd;
+	//pd = nullptr;
 
 	return 0;
 }
+// git reset --hard HEAD~삭제할커밋개수
