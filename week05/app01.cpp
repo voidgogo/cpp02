@@ -2,7 +2,6 @@
 #include <string>
 #include <typeinfo> 
 using namespace std;
-
 class Animal {
 public:
 	void makeSound() { cout << "동물이 소리를 냅니다...\n"; }
@@ -15,12 +14,17 @@ class Cat : public Animal {
 public:
 	void makeSound() { cout << "냐옹~\n"; }
 };
-
 int main()
 {
-	Animal a;
-	Dog d;
-	cout << typeid(d).name() << endl;
-	d.makeSound();
+	Animal* pa = new Animal();
+	pa->makeSound();
+	delete pa;
+	pa = nullptr;
+	
+	pa = new Dog();
+	pa->makeSound();
+	delete pa;
+	pa = nullptr;
+
 	return 0;
 }
