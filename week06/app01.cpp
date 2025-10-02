@@ -29,6 +29,16 @@ public:
 		int r = this->real + right.real;
 		int i = this->imaginary + right.imaginary;
 		return Complex(r, i);
+		//return Complex(r, this->imaginary);  // 가능하나 수학적으로 문제가 됨
+	}
+	Complex operator++(int) {  // 후위연산
+		Complex previous(this->real, this->imaginary);
+		this->real = this->real + 1;
+		return previous;
+	}
+	Complex operator++() {  // 전위연산
+		this->real++;
+		return Complex(this->real, this->imaginary);
 	}
 };
 
@@ -37,10 +47,20 @@ int main() {
 	Complex c2(10, 7);
 	c1.setReal(5);
 	c1.setImaginary(3);
-	cout << c1.getReal() << "+" << c1.getimaginary() << "i" << endl;
-	cout << c2.getReal() << "+" << c2.getimaginary() << "i" << endl;
+	//cout << c1.getReal() << "+" << c1.getimaginary() << "i" << endl;
+	//cout << c2.getReal() << "+" << c2.getimaginary() << "i" << endl;
 
-	Complex c3 = c1 + c2;
-	cout << c3.getReal() << "+" << c3.getimaginary() << "i" << endl;
+	Complex c3 = c1 + c2;  // Complex c3 = c1.operator+(c2);
+	//cout << c3.getReal() << "+" << c3.getimaginary() << "i" << endl;
+	
+	//Complex c4 = c3++;	
+	Complex c4 = ++c3;
+    cout << c3.getReal() << "+" << c3.getimaginary() << "i" << endl;
+	cout << c4.getReal() << "+" << c4.getimaginary() << "i" << endl;
+
+	//int i1 = 15;
+	//int i2 = ++i1;
+	//cout << i2 << endl;
+
 	return 0;
 }
