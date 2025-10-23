@@ -42,13 +42,16 @@ public:
 		this->real++;
 		return Complex(this->real, this->imaginary);
 	}
+
+	// member function (method)
+	friend ostream& operator<<(ostream& o, const Complex& right) {
+		//o << right.getReal() << "+" << right.getimaginary() << "i";
+		o << right.real << "+" << right.imaginary << "i";
+		return o;
+	}
 };
 
 // non member function
-ostream& operator<<(ostream& o,const Complex right) {	
-	o << right.getReal() << "+" << right.getimaginary() << "i";
-	return o;
-}
 Complex operator+(const Complex& left, const Complex& right) {
 	int r = left.getReal() + right.getReal();
 	int i = left.getimaginary() + right.getimaginary();
@@ -61,11 +64,11 @@ int main() {
 	c1.setReal(5);
 	c1.setImaginary(3);
 
-	Complex c3 = c1 + c2;  // Complex c3 = c1.operator+(c2);
-
+	//Complex c3 = c1 + c2;  
+	Complex c3 = operator+(c1, c2);
+	//Complex c3 = c1.operator+(c2);
 	Complex c4 = c3++;
-	//cout << c3.getReal() << "+" << c3.getimaginary() << "i" << endl;
-	//cout << c4.getReal() << "+" << c4.getimaginary() << "i" << endl;
+
 	cout << c3 << endl;
 	cout << c4 << endl;
 	return 0;
