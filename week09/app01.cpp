@@ -58,15 +58,32 @@ Complex operator+(const Complex& left, const Complex& right) {
 	return Complex(r, i);
 }
 
+istream& operator>>(istream& i, Complex& right) {
+	int real, imag;
+
+	cout << "Input real value : ";
+	i >> real;
+	right.setReal(real);
+
+	cout << "Input imaginary value : ";
+	i >> imag;
+	right.setImaginary(imag);
+
+	return i;
+}
+
 int main() {
 	Complex c1;
-	Complex c2(10, 7);
+
+	//Complex c2(10, 7);
+	Complex c2;
+	cin >> c2;
+	cout << c2 << endl;
+
 	c1.setReal(5);
 	c1.setImaginary(3);
 
-	//Complex c3 = c1 + c2;  
-	Complex c3 = operator+(c1, c2);
-	//Complex c3 = c1.operator+(c2);
+	Complex c3 = operator+(c1, c2);	//Complex c3 = c1 + c2;  
 	Complex c4 = c3++;
 
 	cout << c3 << endl;
