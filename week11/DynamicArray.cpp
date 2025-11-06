@@ -17,3 +17,13 @@ DynamicArray::~DynamicArray()
 	cout << "동적배열 메모리 해제\n";
 	delete[] ptr;
 }
+
+int DynamicArray::getAt(int index)
+{
+	return ptr[index];
+}
+
+void DynamicArray::setAt(int index, int value)
+{
+	ptr[index] = value;
+}
