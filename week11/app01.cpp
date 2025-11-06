@@ -23,6 +23,9 @@ int main()
         cout << "메모리 오류\n";
         cout << "에러코드 : " << err;
     }
+    catch (...) {
+        cout << "런타임 예외 발생\n";
+    }
 
     return 0;
 }
