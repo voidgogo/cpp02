@@ -6,8 +6,9 @@ DynamicArray::DynamicArray()
 {
 }
 
-DynamicArray::DynamicArray(int size)
+DynamicArray::DynamicArray(int size) : size(size)
 {
+	//this->size = size;
 	cout << "동적배열 생성됨\n";
 	ptr = new int[size];
 }
@@ -25,5 +26,7 @@ int DynamicArray::getAt(int index)
 
 void DynamicArray::setAt(int index, int value)
 {
+	if (index >= size || index < 0)
+		throw 0;
 	ptr[index] = value;
 }
