@@ -1,5 +1,6 @@
 #include <iostream>
 #include "DynamicArray.h"
+#include "MyException.h"
 using namespace std;
 
 int main()
@@ -17,15 +18,11 @@ int main()
         //cout < endl;
         cout << da1.getAt(7) << endl;  // !
     }
-    catch (int err) {
-        cout << "인덱스 범위를 벗어났습니다(int)\n";
-    }
-    catch (bool err) {
-        cout << "인덱스 범위를 벗어났습니다(bool)\n";
-    }
-    catch (const char* err) {
-        cout << err;
-        cout << "에러코드 : " << err;
+    catch (const MyException& err) {
+        cout << "에러코드 : " << err.getErrorCode() << '\n';
+        cout << "에러메세지 : " << err.getErrorMessage() << '\n';
+        cout << "에러 메모리 번지 주소 : " << err.getErrorAddress() << '\n';
+
     }
     catch (...) {
         cout << "런타임 예외 발생\n";

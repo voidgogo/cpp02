@@ -7,7 +7,10 @@ class MyException {
 private:
 	int errorCode;
 	const char* errorMessage;
-	DynamicArray* errorAddress;
+	DynamicArray* errorAddress;  // has-a
 public:
 	MyException(int ec, const char* em, DynamicArray* ea);
+	int getErrorCode() const;
+	const char* getErrorMessage() const;
+	DynamicArray* getErrorAddress() const;
 };
