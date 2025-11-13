@@ -6,7 +6,7 @@ private:
 public:
 	DynamicArray();
 	DynamicArray(int size);
-	~DynamicArray();
+	virtual ~DynamicArray();
 
 	int getAt(int index);
 	void setAt(int index, int value);

@@ -6,6 +6,10 @@ MyException::MyException(int ec, const char* em, DynamicArray* ea)
 	//cout << "예외 객체 생성\n";
 }
 
+MyException::~MyException()
+{
+}
+
 int MyException::getErrorCode() const
 {
 	return errorCode;
