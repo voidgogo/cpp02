@@ -11,6 +11,12 @@ public:
 	Pokemon(int hp, string name) : hp(hp), name(name) {
 		cout << name << " 포켓몬 생성됨\n";
 	}
+	int getHp() const {
+		return hp;
+	}
+	string getName() const {
+		return name;
+	}
 };
 //class Pikachu : public Pokemon {
 //public:
@@ -23,16 +29,24 @@ public:
 //	void attack() { "물대포공격!\n"; };
 //};
 
+ostream& operator<<(ostream& o, Pokemon& right) {
+	o << right.getName() << "(hp: " << right.getHp() << ")\n";
+	return o;
+}
+
 int main()
 {
+	typedef Stack<Pokemon> PokemonStack;
+	typedef Stack<int> iStack;
+
 	Pokemon pikachu;
 	Pokemon squirtle(100, "꼬부기");
 
-  Stack<int> stacki(10);
-  Stack<Pokemon> stackPokemon(3);
+	iStack stacki(10);
+	PokemonStack stackp(3);
   Stack<double> stackd(3);
-  stackPokemon.push(pikachu);
-  stackPokemon.push(squirtle);
+  stackp.push(pikachu);
+  stackp.push(squirtle);
 
   stacki.push(5);
   stacki.push(6);
@@ -40,7 +54,12 @@ int main()
   stacki.push(3);
   cout << stacki.pop() << endl;
   cout << stacki.pop() << endl;
-  cout << stackd.pop() << endl;  // stack is empty!
-  
+  //cout << stackd.pop() << endl;  // stack is empty!
+  stackp.pop();
+  stackp.pop();
+  //stackp.pop();
+
+  cout << pikachu;
+  cout << squirtle;
   return 0;
 }
